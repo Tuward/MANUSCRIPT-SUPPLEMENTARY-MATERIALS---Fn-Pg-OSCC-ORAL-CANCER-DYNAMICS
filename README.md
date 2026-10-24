@@ -1,0 +1,2 @@
+# MANUSCRIPT-SUPPLEMENTARY-MATERIALS---Fn-Pg-OSCC-ORAL-CANCER-DYNAMICS
+This repository contains supplementary datasets, screening records, bibliometric analyses, network maps, tables, and figures supporting the manuscript on Fusobacterium nucleatum, Porphyromonas gingivalis, and oral squamous cell carcinoma (OSCC), providing additional details for interpreting the findings and evaluating the research.
