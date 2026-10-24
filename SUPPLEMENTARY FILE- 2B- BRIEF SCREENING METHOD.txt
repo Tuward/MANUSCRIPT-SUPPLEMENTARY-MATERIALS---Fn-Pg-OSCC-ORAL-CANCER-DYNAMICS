@@ -1,0 +1,59 @@
+SCREENING METHOD
+Project: Fn/Pg and oral squamous cell carcinoma literature screening
+Input workbook: OSCC_FnPg_Final_Deduplicated_Records_CLEAN(1).xlsx
+Input worksheet: Final_Deduplicated
+Input records: 2,583
+Unique records retained by this screening rule: 991
+Records not retained by this rule: 1,592
+
+1. SCREENING RULE
+Screen records for the occurrence of at least one of these five phrases in the available searchable metadata:
+1) Fusobacterium nucleatum
+2) Porphyromonas gingivalis
+3) oral squamous cell carcinoma
+4) oral carcinogenesis
+5) oral microbiome dysbiosis
+
+A record is retained if ANY ONE OR MORE of the five phrases is found (Boolean OR rule).
+The user's spelling "Oral Squamous Cell Carcinome" was standardized to "oral squamous cell carcinoma".
+
+2. FIELDS SEARCHED
+Title; Abstract; Author_Keywords; Index_Keywords; MeSH_Terms.
+The supplied workbook has no full-text field or full-text documents. Therefore, full texts were NOT searched in this screening pass.
+The keyword and MeSH columns are present but entirely empty in this input workbook, so actual matches came from available Title and/or Abstract text.
+Records with missing abstracts were still assessed using the other available fields.
+
+3. MATCHING LOGIC
+- Case-insensitive phrase matching.
+- One or more whitespace characters are accepted between words in each phrase.
+- Word boundaries are used to avoid matching the phrase as part of a longer word.
+- No synonyms, abbreviations (e.g., OSCC), stemming, inferred relevance, or additional organism names were added.
+- A record is counted once in the eligible output even if it matches multiple terms.
+- The per-term counts below overlap and must not be added together to obtain the unique eligible count.
+
+4. REPRODUCIBLE REGULAR EXPRESSIONS
+Fusobacterium nucleatum:       r'\bfusobacterium\s+nucleatum\b'       (case-insensitive)
+Porphyromonas gingivalis:      r'\bporphyromonas\s+gingivalis\b'      (case-insensitive)
+oral squamous cell carcinoma:  r'\boral\s+squamous\s+cell\s+carcinoma\b' (case-insensitive)
+oral carcinogenesis:           r'\boral\s+carcinogenesis\b'           (case-insensitive)
+oral microbiome dysbiosis:     r'\boral\s+microbiome\s+dysbiosis\b'  (case-insensitive)
+
+Equivalent Boolean expression:
+("Fusobacterium nucleatum" OR "Porphyromonas gingivalis" OR
+ "oral squamous cell carcinoma" OR "oral carcinogenesis" OR
+ "oral microbiome dysbiosis")
+
+5. RESULTS
+Total input records: 2,583
+Eligible records retained: 991
+Records not retained by the five-phrase rule: 1,592
+
+Per-term match counts (overlap allowed):
+- Fusobacterium nucleatum: 352
+- Porphyromonas gingivalis: 425
+- oral squamous cell carcinoma: 435
+- oral carcinogenesis: 58
+- oral microbiome dysbiosis: 16
+
+6. IMPORTANT INTERPRETATION
+This is a literal phrase-based screening pass according to the specified five-term rule. It is not a full-text eligibility assessment and does not establish that each retained record is scientifically relevant to Fn/Pg mechanisms or oral carcinogenesis. In particular, the broad OR rule retains a record that mentions "oral squamous cell carcinoma" even if neither target organism is mentioned. Full-text screening and substantive eligibility review should be conducted separately if required by the review protocol.
